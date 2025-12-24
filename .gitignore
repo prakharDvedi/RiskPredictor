@@ -1,0 +1,27 @@
+# Virtual Environment
+venv/
+env/
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# System Files
+.DS_Store
+
+# Data Directory (Ignore large files)
+data/raw/*
+data/processed/*
+
+# Keep the folder structure but ignore content inside (optional practice)
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Output Models (Large binaries)
+outputs/*.pth
+outputs/*.pt
+
+# Keep visual outputs for the README
+!outputs/explanation_plot.png
+!outputs/risk_map.html

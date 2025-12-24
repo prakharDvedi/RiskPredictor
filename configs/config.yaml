@@ -1,0 +1,22 @@
+experiment_name: "multimodal_event_v1"
+
+system:
+  seed: 42
+  device: "cuda" # or "mps" for Mac, "cpu" if needed
+
+data:
+  window_size: 7 # Days of history to look at
+  prediction_horizon: 24 # Hours ahead to predict
+  geo_resolution: 5 # H3 resolution (approx 8.5km radius)
+
+features:
+  text_model: "xlm-roberta-base" # Multilingual support is key
+  image_model: "resnet50"
+  use_weather: true
+  use_finance: true
+
+training:
+  batch_size: 32
+  learning_rate: 1e-4
+  epochs: 20
+  class_weights: [1.0, 5.0, 5.0] # Handle class imbalance (Unrest/Disaster are rare)
